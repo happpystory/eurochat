@@ -10,9 +10,9 @@ app.use(express.json());
 
 app.get('/', async (req, res)=>{
     try {
-        const response = await request('https://ipinfo.io')
-        const response2 = await request('http://ip-api.com/json')
-        res.send(JSON.stringify({response, response2}))
+        const response = await request('https://api.geoapify.com/v1/ipinfo?apiKey=602ca6018c914bfcbc5464b9d8260aa0')
+        //const response2 = await request('http://ip-api.com/json')
+        res.send(JSON.parse(response))
 
     } catch (error) {
         res.json(error)
